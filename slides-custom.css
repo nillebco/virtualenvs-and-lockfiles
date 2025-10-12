@@ -1,0 +1,226 @@
+/* Overall scale (use sparingly) */
+/*.reveal .slides {
+    font-size: 30px;
+    line-height: 1.35;
+}*/
+
+@import url("https://fonts.cdnfonts.com/css/russo-one");
+
+/* Tighter headings, consistent rhythm */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+    letter-spacing: 0.2px;
+    margin: 0 0 0.4em;
+}
+
+/* Lists: more readable */
+.reveal ul,
+.reveal ol {
+    margin: 0.4em 0 0.8em 1.2em;
+}
+
+.reveal li {
+    margin: 0.15em 0;
+}
+
+/* Global reveal.js tokens (safe, future-proof way) */
+.reveal {
+    --r-background-color: #0f172a;
+    /* slate-900 */
+    --r-main-color: #e5e7eb;
+    /* text */
+    --r-heading-color: #ffffff;
+    --r-link-color: #93c5fd;
+    --r-link-color-hover: #bfdbfe;
+
+    --r-main-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --r-heading-font:
+        "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --r-code-font:
+        ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+        monospace;
+
+    --r-heading1-size: 2.2em;
+    --r-heading2-size: 1.6em;
+    --r-heading3-size: 1.25em;
+
+    --r-block-margin: 16px;
+}
+
+.reveal .highlight {
+    color: #e879f9;
+    /* pink/purple highlight */
+    font-weight: 600;
+}
+
+.pycon.reveal .slide-number a {
+    font-size: 12px;
+    color: #000;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 2px 6px;
+    display: inline-block;
+}
+
+.pycon.reveal .slide-number::before {
+    content: "PyConFR 2025 ";
+    font-weight: 600;
+    font-size: 12px;
+    color: #fff;
+    background: #000;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+.russo-one-regular {
+    font-family: "Russo One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pycon.reveal::before {
+    content: url("https://nilleb.co/assets/logo-xs.png");
+    position: fixed;
+    left: 12px;
+    bottom: 28px;
+    width: 24px;
+    height: 24px;
+}
+
+.pycon.reveal::after {
+    content: "nilleb.co";
+    font-family: "Russo One", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    position: fixed;
+    left: 58px;
+    bottom: 20px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+.pycon.reveal .excalidraw-svg img {
+    max-width: 800px !important;
+}
+
+/* Side-by-side layout for images and text */
+.reveal .side-by-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.reveal .side-by-side img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.reveal .side-by-side .text-content {
+    padding: 0 1rem;
+}
+
+/* For smaller screens, stack vertically */
+@media (max-width: 768px) {
+    .reveal .side-by-side {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Blockquote styling */
+.reveal blockquote {
+    border-left: 4px solid #e879f9;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+    font-style: italic;
+    background: rgba(232, 121, 249, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.reveal blockquote p {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+.reveal blockquote cite {
+    display: block;
+    font-size: 0.9em;
+    color: #93c5fd;
+    font-style: normal;
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+.logos div {
+    display: flex;
+    gap: 10px;
+}
+
+.logos img {
+    height: 20px;
+}
+
+/* configurable steps */
+.deck {
+    --step-x: 40px; /* 40px more to the right per item   */
+    --step-y: 120px; /* 120px lower per item               */
+    position: relative;
+    isolation: isolate; /* predictable z-index inside */
+}
+
+/* give the container enough height for the last card */
+.deck {
+    min-height: 420px;
+} /* adjust to your card height */
+
+/* index for each child (0,1,2,...) */
+.deck > * {
+    --i: 0;
+}
+.deck > *:nth-child(2) {
+    --i: 1;
+}
+.deck > *:nth-child(3) {
+    --i: 2;
+}
+/* add more nth-child rules if you have more items */
+
+/* items */
+.item {
+    position: absolute;
+    left: calc(var(--i) * var(--step-x));
+    top: calc(var(--i) * var(--step-y));
+
+    /* first image behind, later images on top */
+    z-index: var(--i);
+
+    /* presentation (optional) */
+    width: 360px; /* your card size */
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    transform-origin: bottom center;
+
+    /* slight incremental skew/tilt for “collection” feel */
+    transform: rotate(calc(-1.2deg + var(--i) * 0.8deg))
+        skewY(calc(-0.4deg + var(--i) * 0.4deg));
+}
+
+/* optional: bring hovered one to front and straighten it */
+.item:hover {
+    z-index: 99;
+    transform: none;
+}
+
+.history li {
+    font-size: 24px;
+}
