@@ -222,6 +222,17 @@ Note:
 
 ---
 # Thank you!
-Any questions? Get in touch!
-
-<a href="mailto:ivo@nilleb.co">ivo@nilleb.co</a>
+<div class="side-by-side">
+    <div>
+        <p>
+        Any questions? Get in touch!
+        <p>
+        <a href="mailto:ivo@nilleb.co">ivo@nilleb.co</a>
+    </div>
+<p>
+You liked this presentation?
+Star the repo on GitHub!
+<br>
+<img src="repo-qrcode.png" style="width: 40%">
+</p>
+</div>
