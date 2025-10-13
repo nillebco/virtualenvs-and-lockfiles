@@ -89,7 +89,7 @@ pip sync
 ```
 
 ---
-## 2013
+## 2012 - pip-tools and venv (python3.3)
 imperative vs declarative
 
 ```sh
@@ -104,10 +104,22 @@ pip sync requirements.txt
 ```
 
 ---
-## Advantages of a virtual environment
-- have a python _per project_
-- manage the dependencies _per project_
-- quickly distribute your software
+## How does a virtual environment look like?
+
+<div class="side-by-side">
+<ul>
+    <li>a venv folder <span class="highlight">in the project folder</span></li>
+    <li>a link to the python interpreter binary</li>
+    <li>the project dependencies</li>
+</ul>
+<img src="venv-structure.png" style="height: 80%; width: 60%">
+</div>
+
+Note:
+- reproducible environments: given a description of the venv, we can share the project with others
+- safe experimentation - different python versions, upgrade your dependencies
+- no root access - you odn't need write access to system folders
+- dependencies isolation - the dependencies of this project do not interphere with other projects
 
 ---
 ## Better, but still ..
@@ -164,6 +176,7 @@ example[extra] > 1.2.3; python_version < 3.14
 
 - Pin all the versions, including the transitive ones
 - Include the details about the source of the package, including its digital signature
+- Version this file!
 
 ---
 
@@ -195,10 +208,12 @@ ur run main.py
 ```
 
 ---
-# Security?
+## Is this enough for security?
 
 - use a private package repository
 - on CI environments, make sure that the dependencies manager does not try to upgrade (eg. `uv sync --frozen`)
+- use an automated tool to scan new dependencies/new versions (bandit, snyk)
+- zero secrets in code
 
 Note:
 `uv` (or any package manager) without command line options is a good starting point; if you work in a security-first environment, you should read the manual carefully.
@@ -210,10 +225,8 @@ Note:
 - post-install scripts
 - dependencies confusion
 
-![[Pasted image 20251012122206.png]]
-
 ---
-# Takeaways
+# Take-aways
 - virtual environments, lockfiles seem easy, but they are not
 - python has standardized late their formats, at last we have a consensus!
 - tools like `uv` simplify greatly the dependencies management
