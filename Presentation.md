@@ -87,6 +87,14 @@ pip install -r requirements.txt (declarative)
 pip compile
 pip sync
 ```
+---
+## _C'était mieux avant_
+
+<span style="font-size: 24px;"><i>No, not really.</i></span>
+
+<img src="python-environment-xkcd.png" style="width: 50%"/>
+
+(https://xkcd.com/1987/)
 
 ---
 ## 2012 - pip-tools and venv (python3.3)
