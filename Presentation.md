@@ -178,6 +178,7 @@ example[extra] > 1.2.3; python_version < 3.14
 ```
 
 ---
+
 ## Lockfile (2025)
 
 <img src="dependencies.png" style="height: 125px"/>
@@ -188,7 +189,8 @@ example[extra] > 1.2.3; python_version < 3.14
 
 ---
 
-## also 2025
+## how do you manage virtual envs in 2025?
+
 ```sh
 uv init --python 3.14
 uv add dependency # only when the dependency is added
@@ -196,6 +198,10 @@ uv add dependency # only when the dependency is added
 uv sync # determine your dependencies and restore them
 uv run main.py # use the venv in this folder to run main.py
 ```
+
+<a href="https://emily.space/posts/251023-uv">
+    <img src="https://emily.space/assets/posts/251023-uv/header.webp" style="height: 200px" alt="emily.space sponsors uv"/>
+</a>
 
 ---
 
@@ -216,6 +222,7 @@ ur run main.py
 ```
 
 ---
+
 ## Is this enough for security?
 
 - use a private package repository
