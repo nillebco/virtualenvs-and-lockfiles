@@ -87,6 +87,7 @@ pip install -r requirements.txt (declarative)
 pip compile
 pip sync
 ```
+
 ---
 ## _C'était mieux avant_
 
@@ -97,7 +98,9 @@ pip sync
 (https://xkcd.com/1987/)
 
 ---
+
 ## 2012 - pip-tools and venv (python3.3)
+
 imperative vs declarative
 
 ```sh
@@ -110,6 +113,10 @@ pip install dependency
 pip compile requirements.in > requirements.txt
 pip sync requirements.txt
 ```
+
+Note: we `compile` the dependencies to keep both a simple, human readable dependencies list (.in) and an exhaustive, pinned list of dependencies (.txt). Both should be versioned.
+
+Before the pip tools we had to freeze the current python environment, implying a cognitive overload/many manual operations.
 
 ---
 ## How does a virtual environment look like?
@@ -179,6 +186,18 @@ example[extra] > 1.2.3; python_version < 3.14
 
 ---
 
+## Semantic versioning
+
+Pay attention to the breaking changes - where semantic versioning is applicable
+
+```toml
+requests>=1.2.3 <-- permet de mettre à jour de la version majeure 1 à 2 (breaking change!)
+
+# Merci Damien 🙏🏼
+requests~=1.2.3 <-- met à jour en préservant la version majeure actuelle (pas de passage de 1 à 2)
+```
+
+---
 ## Lockfile (2025)
 
 <img src="dependencies.png" style="height: 125px"/>
