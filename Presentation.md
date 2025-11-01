@@ -3,6 +3,12 @@
 how python is improving <span class="highlight">reproducibility</span>
 
 ---
+
+## Pointers
+
+https://nilleb.co/venv
+
+---
 ## Why
 
 You shouldn't <span class="highlight">reinvent the wheel</span> every time
